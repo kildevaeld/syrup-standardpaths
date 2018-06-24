@@ -1,6 +1,6 @@
 #include <Cocoa/Cocoa.h>
 #include <string.h>
-#include <csystem/standardpaths.h>
+#include <syrup/standardpaths.h>
 
 char * osx_get_path(char *buffer, size_t len) {
     NSArray<NSURL*> *urls = [
@@ -27,22 +27,22 @@ char * osx_get_path(char *buffer, size_t len) {
     return buffer;
 }
 
-static NSSearchPathDirectory cs_stdpath_dir_to_nssearchpath(cs_stdpath_dir dir) {
+static NSSearchPathDirectory sy_stdpath_dir_to_nssearchpath(sy_stdpath_dir dir) {
     switch (dir) {
-    case cs_stdpath_data_dir:return NSApplicationSupportDirectory;
-    case cs_stdpath_cache_dir: return NSCachesDirectory;
+    case sy_stdpath_data_dir:return NSApplicationSupportDirectory;
+    case sy_stdpath_cache_dir: return NSCachesDirectory;
     }
     return 0;
 }
 
-static NSSearchPathDomainMask cs_stdpath_domain_to_nssearchpath(cs_stdpath_domain domain) {
+static NSSearchPathDomainMask sy_stdpath_domain_to_nssearchpath(sy_stdpath_domain domain) {
     switch (domain) {
-    case cs_stdpath_user_domain: return NSUserDomainMask;
-    case cs_stdpath_local_domain: return NSLocalDomainMask;
+    case sy_stdpath_user_domain: return NSUserDomainMask;
+    case sy_stdpath_local_domain: return NSLocalDomainMask;
     }
 }
 
-char *get_path_osx(char *buffer, size_t len, cs_stdpath_dir dir, cs_stdpath_domain domain) {
+char *get_path_osx(char *buffer, size_t len, sy_stdpath_dir dir, sy_stdpath_domain domain) {
     NSArray<NSURL*> *urls = [
         [NSFileManager defaultManager] 
         URLsForDirectory:NSApplicationSupportDirectory 
@@ -51,7 +51,7 @@ char *get_path_osx(char *buffer, size_t len, cs_stdpath_dir dir, cs_stdpath_doma
 
     if ([urls count] == 0) return NULL;
 
-    NSSearchPathDirectory d = cs_stdpath_dir_to_nssearchpath(dir);
+    NSSearchPathDirectory d = sy_stdpath_dir_to_nssearchpath(dir);
 
     NSString *path = nil;
 

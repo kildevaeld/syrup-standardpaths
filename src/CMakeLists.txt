@@ -9,6 +9,6 @@ if (APPLE)
     set(LIBS ${LIBS} "-framework Foundation -framework Cocoa")
 endif(APPLE)
 
-add_library(syrup-standardpaths ${SOUCRES})
+add_library(syrup-standardpaths ${SOURCES})
 target_link_libraries(syrup-standardpaths ${LIBS})
-target_include_directories(syryp-standardpaths PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(syrup-standardpaths PUBLIC ${PROJECT_SOURCE_DIR}/include)

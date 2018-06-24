@@ -1,6 +1,6 @@
 #pragma once
 
-#include <csystem/standardpaths.h>
+#include <syrup/standardpaths.h>
 
 char *osx_get_path(char *buffer, size_t len);
-char *get_path_osx(cs_stdpath_dir dir, cs_stdpath_domain domain);
+char *get_path_osx(sy_stdpath_dir dir, sy_stdpath_domain domain);
