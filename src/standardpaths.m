@@ -31,6 +31,7 @@ static NSSearchPathDirectory sy_stdpath_dir_to_nssearchpath(sy_stdpath_dir dir) 
     switch (dir) {
     case sy_stdpath_data_dir:return NSApplicationSupportDirectory;
     case sy_stdpath_cache_dir: return NSCachesDirectory;
+    case sy_stdpath_config_dir: return NSLibraryDirectory;
     }
     return 0;
 }

@@ -190,6 +190,8 @@ char *sy_path_for_dir(sy_stdpath_dir dir, sy_stdpath_domain domain) {
 #elif defined(SY_PLATFORM_DARWIN)
 
 #endif
+
+return NULL;
 }
 
 #undef SY_LINUX_GEN
